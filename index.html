@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+		<style>
+		  p {
+			    text-decoration: none;
+			    font-weight: bold;
+			    font-size: 37px;
+			    color: #799dec;
+			    text-shadow: 0px 4px 2px rgba(0, 0, 0, 0.32), 0px 1px 0px #6182ca, 0px 2px 0px #4f6aa7, 0px 3px 0px #5470ad;
+				}
+			p:hover {
+				opacity: 0.8;
+			}
+
+			table {
+				border-collapse: collapse;
+				width:100%;
+			}
+			th.t_top {
+			    border-top: #be1309 4px solid;
+			}
+			th {
+				border-bottom: #e3e3e3 1px dotted;
+				text-align: left;
+				padding: 10px;
+				font-weight: normal;
+			}
+			td.t_top {
+				border-top: #b3b3b3 4px solid;
+			}
+			td {
+				border-bottom: #e3e3e3 1px dotted;
+				text-align: left;
+				padding: 10px;
+			}
+			tr:hover {
+			    background: #3D80DF;
+			    color: #FFFFFF;
+			}
+		</style>
+	</head>
+	<body>
+		<p>今日の当番を決めよう！</p>
+		<table id="myrole">
+		  <tr><th>ゴミ全般<td>？</tr>
+		  <tr><th>床など掃除機全般<td>？</tr>
+		  <tr><th>水回り（トイレ・キッチン）<td>？</tr>
+		</table>
+		<script>
+			$("p:first").click(function(){
+				var members = ['Sato', 'Saito', 'Ogasawara', 'Sakaida', 'Kojima'];
+				for (var i = members.length - 1; i >= 0; i--){
+				  // 0~iのランダムな数値を取得
+				  var rand = Math.floor( Math.random() * ( i + 1 ) );
+				  // 配列の数値を入れ替える
+				  [members[i], members[rand]] = [members[rand], members[i]]
+				}
+				myrole.rows[0].cells[1].innerText = members[0];
+				myrole.rows[1].cells[1].innerText = members[1];
+				myrole.rows[2].cells[1].innerText = members[2];
+			});
+		</script>
+	</body>
+</html>
